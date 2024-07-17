@@ -1,0 +1,39 @@
+{% extends "OrderList/layout.html" %}
+
+{% block title %}
+<title>All Food Orders</title>
+{% endblock %}
+
+{% block heading %}
+<h1>All Food Orders</h1>
+{% endblock %}
+
+{% block content %}
+<table class="table table-success table-striped">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th>ORDERED</th>
+        <th>ORDER CREATE</th>
+        <th>ORDER UPDATE</th>
+        <th>UPDATE</th>
+        <th>DELETE</th>
+    </tr>
+    {% for i in obj %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.title}}</td>
+        <td>{{i.description}}</td>
+        <td>{{i.completed}}</td>
+        <td>{{i.created_at}}</td>
+        <td>{{i.updated_at}}</td>
+        <td><a href="/order/update/{{i.id}}/"><button>Update</button></a></td>
+        <td><a href="/order/delete/{{i.id}}/"><button>Delete</button></a></td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="/order/add/">
+    <button>Add Order</button>
+</a>
+{% endblock%}

@@ -1,0 +1,18 @@
+{% extends "OrderList/layout.html" %}
+
+{% block title %}
+<title>Add Food Order</title>
+{% endblock %}
+
+{% block heading %}
+<h1>ADD Food Order</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post" >
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit">
+</form>
+<a href="//order/show/"><button>Show Order</button></a>
+{% endblock %}
